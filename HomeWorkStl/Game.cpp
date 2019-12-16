@@ -34,16 +34,25 @@ bool Game::start() {
 		std::cout << "render created " << std::endl;
 
 
-		Texture* playertexture = new Texture();
+		/*Texture* playertexture = new Texture();
 		playertexture->LoadImgFromFile("../assets/v3.bmp",SdlRenderer);
 
 		M_Position1.X = 10;
 		M_Position1.Y = 200;
 		GameObject*player = new Player(playertexture,M_Position1);
-		M_GameObjects.push_back(player);
+		M_GameObjects.push_back(player);*/
 
-		Texture * enemytexture = new Texture();
-		enemytexture->LoadImgFromFile("../assets/v1.bmp", SdlRenderer);
+
+		Texture* playerSpacetexture = new Texture();
+		playerSpacetexture->LoadImgFromFile("../assets/v3.bmp", SdlRenderer);
+
+		M_Position1.X = 10;
+		M_Position1.Y = 200;
+		GameObject*playerSpaceS = new PlayerSpaceShip(playerSpacetexture, M_Position1);
+		M_GameObjects.push_back(playerSpaceS);
+
+		//Texture * enemytexture = new Texture();
+		//enemytexture->LoadImgFromFile("../assets/v1.bmp", SdlRenderer);
 
 	/*	m_position1.x = 10;
 		m_position1.y = 20;

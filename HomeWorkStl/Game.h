@@ -3,7 +3,7 @@
 #include "Texture.h"
 
 #include"Player.h"
-
+#include"PlayerSpaceShip.h"
 #include<vector>
 #include"Vector2.h"
 #include"Input.h"
@@ -16,6 +16,7 @@ private:
 	unsigned int LastUpadateTimer;
 	Texture* M_Texture;
 	std::vector<GameObject*>M_GameObjects;
+	PlayerSpaceShip * M_Player_SpaceShip;
 	Player* M_Player;
 	Input *UserInput;
 	Vector2 M_Position1;
