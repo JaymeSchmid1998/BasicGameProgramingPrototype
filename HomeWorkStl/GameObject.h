@@ -13,9 +13,9 @@ public:
 	virtual void Update(float delraTime);
 	virtual void UserInput1();
 	virtual void HandleUserInput(Input*input);
-
-protected:
 	Vector2 M_Position;
 	Texture*M_Texture;
+protected:
+	
 };
 

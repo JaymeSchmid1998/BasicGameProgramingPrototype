@@ -2,7 +2,7 @@
 #include<iostream>
 
 
-//page number 3
+
 
 Game::Game()
 {
@@ -34,55 +34,18 @@ bool Game::start() {
 		std::cout << "render created " << std::endl;
 
 
-		/*Texture* playertexture = new Texture();
-		playertexture->LoadImgFromFile("../assets/v3.bmp",SdlRenderer);
-
-		M_Position1.X = 10;
-		M_Position1.Y = 200;
-		GameObject*player = new Player(playertexture,M_Position1);
-		M_GameObjects.push_back(player);*/
+		
 
 
 		Texture* playerSpacetexture = new Texture();
-		playerSpacetexture->LoadImgFromFile("../assets/v3.bmp", SdlRenderer);
+		playerSpacetexture->LoadImgFromFile("../assets/SP1.bmp", SdlRenderer);
 
 		M_Position1.X = 10;
-		M_Position1.Y = 200;
+		M_Position1.Y = 400;
 		GameObject*playerSpaceS = new PlayerSpaceShip(playerSpacetexture, M_Position1);
 		M_GameObjects.push_back(playerSpaceS);
-
-		//Texture * enemytexture = new Texture();
-		//enemytexture->LoadImgFromFile("../assets/v1.bmp", SdlRenderer);
-
-	/*	m_position1.x = 10;
-		m_position1.y = 20;
-		GameObject*enemy1 = new Enemy(enemytexture, m_position1);
-		m_gameobjects.push_back(enemy1);
-
-
-		Texture * enemytexture1 = new Texture();
-		enemytexture1->loadImgFromF("../assets/v1.bmp", sdlRenderer);
-
-		m_position1.x = 25;
-		m_position1.y = 100;
-		GameObject*enemy2 = new  Enemy(enemytexture1, m_position1);
-		m_gameobjects.push_back(enemy2);*/
-	/*	
-	//this is correct	
-		m_ptexture = new Texture();
-		//C:\Users\zbook j\Desktop\year 3 sem3\game prog\program\backups\2.0\HomeWorkStl\assets
-		if (m_ptexture->loadImgFromF("../assets/v3.bmp", sdlRenderer)) {
-			std::cout << "texture loaded " << std::endl;
-			
+	
 		
-			ani = new Animation(m_ptexture, 10, 0.1f);
-			m_player = new Player();
-		}
-		else
-		{
-			std::cout << "texture not loaded  " << std::endl;
-			return false;
-		}*/
 		
 
 		LastUpadateTimer = SDL_GetTicks();
@@ -139,7 +102,7 @@ void Game::run(char* title, int width, int height, bool fullscreen) {
 
 void Game::draw() {
 
-	SDL_SetRenderDrawColor(SdlRenderer, 0, 0, 0, 255);
+	SDL_SetRenderDrawColor(SdlRenderer, 47, 155, 228, 255);
 	SDL_RenderClear(SdlRenderer);
 	
 	
@@ -177,6 +140,21 @@ void Game::processinput() {
 
 	if (UserInput->IsMouseButtonDown(MOUSE_BUTTON_RIGHT)) {
 		SDL_Log("ALT ifring");
+
+	}
+	if (UserInput->IsKeyDown(SDL_SCANCODE_SPACE))
+	{
+		SDL_Log("SpacePressed");
+		Texture* playerBullets = new Texture();
+		playerBullets->LoadImgFromFile("../assets/B1.bmp", SdlRenderer);
+	//M_GameObjects[0].
+		int X1 = (*M_GameObjects[0]).M_Position.X;
+		int Y1 = (*M_GameObjects[0]).M_Position.Y;
+		M_Position1.X = (X1+10);
+		M_Position1.Y = (Y1-40);
+		GameObject*playerC = new Bullet1(playerBullets, M_Position1);
+		M_GameObjects.push_back(playerC);
+
 
 	}
 
