@@ -33,7 +33,8 @@ bool Game::start() {
 		UserInput = new Input();
 		std::cout << "render created " << std::endl;
 
-
+		playerBullets = new Texture();
+		playerBullets->LoadImgFromFile("../assets/B1.bmp", SdlRenderer);
 		
 
 
@@ -142,11 +143,11 @@ void Game::processinput() {
 		SDL_Log("ALT ifring");
 
 	}
-	if (UserInput->IsKeyDown(SDL_SCANCODE_SPACE))
+	//move this to the player class and when you press space in the player class it should spawn a bullet and be able to retrive the current position of the player as it is apart of the game object class
+	/*if (UserInput->IsKeyDown(SDL_SCANCODE_SPACE))
 	{
 		SDL_Log("SpacePressed");
-		Texture* playerBullets = new Texture();
-		playerBullets->LoadImgFromFile("../assets/B1.bmp", SdlRenderer);
+
 	//M_GameObjects[0].
 		int X1 = (*M_GameObjects[0]).M_Position.X;
 		int Y1 = (*M_GameObjects[0]).M_Position.Y;
@@ -154,14 +155,15 @@ void Game::processinput() {
 		M_Position1.Y = (Y1-40);
 		GameObject*playerC = new Bullet1(playerBullets, M_Position1);
 		M_GameObjects.push_back(playerC);
+		
 
-
-	}
+	}*/
 
 	for (int i = 0; i < M_GameObjects.size(); ++i)
 	{
 		M_GameObjects[i]->UserInput1();
-		M_GameObjects[i]->HandleUserInput(UserInput);
+		//M_GameObjects[i]->HandleUserInput(UserInput);
+		M_GameObjects[i]->HandleUserInput1(UserInput, playerBullets);
 	}
 	SDL_Event e;
 	while (SDL_PollEvent(&e)) {

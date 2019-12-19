@@ -33,3 +33,7 @@ void GameObject::HandleUserInput(Input * input)
 {
 	
 }
+
+void GameObject::HandleUserInput1(Input*input, Texture* playerBullets)
+{
+}

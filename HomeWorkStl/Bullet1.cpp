@@ -13,8 +13,10 @@ Bullet1::Bullet1(Texture * texture, Vector2 position)
 	
 	M_Position = position;
 	M_Texture = texture;
-	M_Velocity = Vector2(0, 0);
-	M_Acceleration = Vector2(0, -70);
+	//only velocity no 
+	M_Velocity = Vector2(0, -70);
+	M_Acceleration = Vector2(0,-70);
+	
 }
 
 void Bullet1::AddPlayerForce(Vector2 force)

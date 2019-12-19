@@ -16,7 +16,7 @@ private:
 	Texture* M_Texture;
 	std::vector<GameObject*>M_GameObjects;
 	PlayerSpaceShip * M_Player_SpaceShip;
-	
+	Texture* playerBullets;
 	Input *UserInput;
 	Vector2 M_Position1;
 	
